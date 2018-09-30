@@ -9,10 +9,12 @@ public class KinematicFlee : MonoBehaviour {
 	void Start () {
 		move = GetComponent<Move>();
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		// TODO 6: To create flee just switch the direction to go
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        // TODO 6: To create flee just switch the direction to go
+
+        move.mov_velocity *= -1;
+    }
 }

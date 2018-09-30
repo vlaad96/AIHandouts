@@ -39,7 +39,8 @@ public class Move : MonoBehaviour {
         // TODO 3: stretch it the arrow (arrow.value) to show how fast the tank is getting push in
         // that direction. Adjust with some factor so the arrow is visible.
 
-        //arrow.transform;
+        Vector3 distance = target.transform.position - transform.position;
+        arrow.value = mov_velocity.magnitude * distance.magnitude * 0.4f;
 
         // TODO 4: update tank position based on final mov_velocity and deltatime
 

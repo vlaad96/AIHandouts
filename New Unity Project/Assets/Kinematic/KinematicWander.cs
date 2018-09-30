@@ -7,6 +7,8 @@ public class KinematicWander : MonoBehaviour {
 
 	Move move;
 
+    uint time = 0;
+
 	// Use this for initialization
 	void Start () {
 		move = GetComponent<Move>();
@@ -21,6 +23,14 @@ public class KinematicWander : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		// TODO 9: Generate a velocity vector in a random rotation (use RandomBinominal) and some attenuation factor
+        // TODO 9: Generate a velocity vector in a random rotation (use RandomBinominal) and some attenuation factor
+        time += 1;
+        
+        if (time % 100 == 0)
+        {
+            Vector3 velocity = new Vector3(RandomBinominal(), 0, RandomBinominal());
+            move.SetMovementVelocity(move.max_mov_velocity * velocity);
+        }
+        
 	}
 }

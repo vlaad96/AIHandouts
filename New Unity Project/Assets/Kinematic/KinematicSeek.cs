@@ -15,7 +15,9 @@ public class KinematicSeek : MonoBehaviour {
 	{
         // TODO 5: Set movement velocity to max speed in the direction of the target
 
-        move.SetMovementVelocity(move.mov_velocity);
+        Vector3 direction = move.target.transform.position - move.transform.position;
+
+        move.SetMovementVelocity(direction.normalized * move.max_mov_velocity);
 
         // Remember to enable this component in the inspector
 	}
