@@ -15,8 +15,6 @@ public class KinematicFlee : MonoBehaviour {
     {
         // TODO 6: To create flee just switch the direction to go
 
-        Vector3 direction = move.target.transform.position - move.transform.position;
-
-        move.SetMovementVelocity((direction.normalized * move.max_mov_velocity)*-1);
+        move.mov_velocity *= -1;
     }
 }
