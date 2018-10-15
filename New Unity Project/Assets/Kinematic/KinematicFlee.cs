@@ -9,12 +9,14 @@ public class KinematicFlee : MonoBehaviour {
 	void Start () {
 		move = GetComponent<Move>();
 	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		Vector3 diff = move.transform.position - move.target.transform.position;
+		diff.Normalize ();
+		diff *= move.max_mov_velocity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        // TODO 6: To create flee just switch the direction to go
-
-        move.mov_velocity *= -1;
-    }
+		move.SetMovementVelocity(diff);
+	}
 }
